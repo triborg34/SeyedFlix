@@ -54,3 +54,19 @@ class InputTextFeilds extends StatelessWidget {
     },);
   }
 }
+
+/*
+
+isPassword ? Get.find<BoolControllers>().isVissiblae ? false :true : false,
+
+if(ispassword){
+  if(isVissiblle){
+    flase
+  }else{
+    true
+  }
+}else{
+  flase
+}
+
+*/

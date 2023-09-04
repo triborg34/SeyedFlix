@@ -16,6 +16,7 @@ class SlideShow extends StatelessWidget {
     return Container(
       height: 250,
       child: PageView.builder(
+        
         reverse: true,
         controller: PageController(initialPage: 0,viewportFraction:1),
         onPageChanged: (value) {
@@ -33,9 +34,17 @@ class SlideShow extends StatelessWidget {
                 height: 230,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(25),
-                  child: Image.asset(
-                    imgString[index],
-                    fit: BoxFit.fill,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/moviedet');
+                    },
+                    child: Hero(
+                      tag: "photo",
+                      child: Image.asset(
+                        imgString[index],
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
               ),

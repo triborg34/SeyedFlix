@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:seyedbox/utils/constracts.dart';
 
-class SearchBar extends StatelessWidget {
+class MySearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(

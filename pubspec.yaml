@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   http: ^0.13.5
   glassmorphism: ^3.0.0
+  expansion_widget: ^0.0.3
 
 
 

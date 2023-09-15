@@ -1,12 +1,12 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:expansion_widget/expansion_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:seyedbox/controllers/controllers.dart';
 import 'package:seyedbox/screens/AccountScreen.dart';
 import 'package:seyedbox/utils/constracts.dart';
-import 'dart:math' as math;
+
+import 'package:seyedbox/widgets/ExpansionPanel.dart';
 
 class CoustomDrawer extends StatelessWidget {
   const CoustomDrawer({
@@ -48,10 +48,22 @@ class CoustomDrawer extends StatelessWidget {
               ),
             ),
             // CollapeWidget(),
-            ExpansionPanels(header: "فیلم",contant: Container(child: Text("data"),)),
-            ExpansionPanels(header: "سریال",contant: Container(child: Text("data"),)),
-            ExpansionPanels(header: "انیمیشن",contant: Container(child: Text("data"),)),
-            ExpansionPanels(header: "انیمه",contant: Container(child: Text("data"),)),
+            ExpansionPanels(header: "فیلم", contant: movieGenre()),
+            ExpansionPanels(
+                header: "سریال",
+                contant: Container(
+                  child: Text("data"),
+                )),
+            ExpansionPanels(
+                header: "انیمیشن",
+                contant: Container(
+                  child: Text("data"),
+                )),
+            ExpansionPanels(
+                header: "انیمه",
+                contant: Container(
+                  child: Text("data"),
+                )),
             Container(
                 color: Colors.red,
                 child: ListTile(
@@ -75,46 +87,32 @@ class CoustomDrawer extends StatelessWidget {
   }
 }
 
-class ExpansionPanels extends StatelessWidget {
-  String header;
-  Widget contant;
-ExpansionPanels({required this.header ,required this.contant});
+Widget movieGenre() {
+  return Container(
+    margin: EdgeInsets.only(bottom: 5),
+    color: lightGreen,
+    child: Column(
+      children: [
+        coustomListTile(title: "تازه ها",iconData: Icons.new_releases_outlined,ontab: (){})
+      ],
+    ),
+  );
+}
 
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionWidget(
 
-        initiallyExpanded: true,
-        titleBuilder:
-            (double animationValue, _, bool isExpaned, toogleFunction) {
-          return InkWell(
-              onTap: () => toogleFunction(animated: true),
-              child: Container(
-              padding: EdgeInsets.only(right: 10),
-                color: lightGreen,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                   
-                    Transform.rotate(
-                      angle: math.pi * animationValue / 2,
-                      child: Icon(
-                        Icons.arrow_right,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                      alignment: Alignment.center,
-                    ),
-                     Expanded(
-                        child: Text(
-                      header,
-                      textAlign: TextAlign.right,
-                      style: TextStyle(color: white,fontSize: 18,fontWeight: FontWeight.bold),
-                    )),
-                  ],
-                ),
-              ));
-        },
-        content: contant);
-  }
+
+Widget coustomListTile({required String title, required IconData iconData,required Function ontab } ){
+  return ListTile(
+            onTap: ontab(),
+            title: Text(
+              title,
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.right,
+              style: TextStyle(
+                  fontSize: 18, fontWeight: FontWeight.bold, color: white),
+            ),
+            trailing: Icon(
+              iconData,
+              color: white,
+            ));
 }

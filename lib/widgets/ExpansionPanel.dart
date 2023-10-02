@@ -14,7 +14,8 @@ ExpansionPanels({required this.header ,required this.contant});
   Widget build(BuildContext context) {
     return ExpansionWidget(
 
-        initiallyExpanded: true,
+
+        initiallyExpanded: false,
         titleBuilder:
             (double animationValue, _, bool isExpaned, toogleFunction) {
             

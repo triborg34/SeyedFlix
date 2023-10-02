@@ -93,7 +93,8 @@ Widget movieGenre() {
     color: lightGreen,
     child: Column(
       children: [
-        coustomListTile(title: "تازه ها",iconData: Icons.new_releases_outlined,ontab: (){})
+        coustomListTile(title: "تازه ها",iconData: Icons.new_releases_outlined,ontab: (){}),
+        
       ],
     ),
   );
